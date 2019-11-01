@@ -10,12 +10,11 @@ import java.util.logging.Logger;
 public class GRPCServer {
 
     private Server server;
-    private static final Logger logger = Logger.getLogger(GRPCServer.class.getName());
-
+    private static final Logger logger = Logger.getLogger(GRPCServer.class.getSimpleName());
+    private static final int PORT = 50550;
 
     private void start() throws IOException {
-    	int port = 50051;
-    	server = ServerBuilder.forPort(port).addService(new PasswordServiceImpl()).build().start();
+    	server = ServerBuilder.forPort(PORT).addService(new PasswordServiceImpl()).build().start();
 		logger.info("Server started on port: " + server.getPort());
     }
 
